@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>MBTI 测试问卷</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <style>
+    .first{
+
+    }
+    .left-color{
+      background-color: aquamarine;
+      color: aquamarine;
+      border-color: #007bff;
+    }
+    .right-color{
+      background-color: plum !important;
+    }
+    .three{
+      width: 1.3em !important;
+      height: 1.3em !important;
+      text-align: center;
+      vertical-align: center;
+      line-height: inherit;
+    }
+    .two{
+      width: 1.1em !important;
+      height: 1.1em !important;
+      text-align: center;
+      vertical-align: center;
+      line-height: inherit;
+    }
+    .one{
+      width: 0.9em !important;
+      height: 0.9em !important;
+      text-align: center;
+      vertical-align: center;
+      line-height: inherit;
+    }
+    .simple{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .radio-list{
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app" class="container">
+
+  <!-- 头部导航栏 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
+    <a class="navbar-brand" href="#">{{title}}</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <!-- 右侧空白 -->
+      <div class="navbar-nav ml-auto"></div>
+    </div>
+  </nav>
+
+  <!-- 问题列表 -->
+  <form @submit.prevent="submitForm">
+    <!--第一题-->
+    <div class="card-header">{{firstQuestion}}</div>
+    <div v-if="max">
+      <div v-for="(question, index) in firstQuestions" :key="index" class="mb-2">
+        <div class="first pl-3 pt-3">
+          <div class="row">
+            <div class="pl-3 col-sm-2 col-lg-2 text-center">
+              <label class="form-check-inline">
+                {{ question.questionLeft }}
+              </label>
+            </div>
+            <div class="radio-list col-sm-5 col-lg-3">
+              <label class="form-check-inline">
+                <input class="left-color three"  type="radio" :name="index" value="-6" v-model="answers.firstAnswer[index].value">
+              </label>
+              <label class="form-check-inline">
+                <input class="left-color two" type="radio" :name="index" value="-4" v-model="answers.firstAnswer[index].value">
+              </label>
+              <label class="form-check-inline">
+                <input class="left-color one" type="radio" :name="index" value="-2" v-model="answers.firstAnswer[index].value">
+              </label>
+              <label class="form-check-inline">
+                <input type="radio" :name="index" value="0" v-model="answers.firstAnswer[index]">
+              </label>
+              <label class="form-check-inline">
+                <input class="right-color one" type="radio" :name="index" value="2" v-model="answers.firstAnswer[index].value">
+              </label>
+              <label class="form-check-inline">
+                <input class="right-color two" type="radio" :name="index" value="4" v-model="answers.firstAnswer[index].value">
+              </label>
+              <label class="form-check-inline">
+                <input class="right-color three" type="radio" :name="index" value="6" v-model="answers.firstAnswer[index].value">
+              </label>
+            </div>
+            <div class="col-sm-2 col-lg-2 text-center">
+              <label class="form-check-inline">
+                {{ question.questionRight }}
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <div v-else>
+    <div  v-for="(question, index) in firstQuestions" :key="index" class="mb-2">
+      <div class="first pl-3 pt-3">
+        <div class="row">
+          <div class="radio-list col-lg-3">
+            <label class="form-check-inline">
+              <input class="left-color three"  type="radio" :name="index" value="-6" v-model="answers.firstAnswer[index].value">
+            </label>
+            <label class="form-check-inline">
+              <input class="left-color two" type="radio" :name="index" value="-4" v-model="answers.firstAnswer[index].value">
+            </label>
+            <label class="form-check-inline">
+              <input class="left-color one" type="radio" :name="index" value="-2" v-model="answers.firstAnswer[index].value">
+            </label>
+            <label class="form-check-inline">
+              <input type="radio" :name="index" value="0" v-model="answers.firstAnswer[index]">
+            </label>
+            <label class="form-check-inline">
+              <input class="right-color one" type="radio" :name="index" value="2" v-model="answers.firstAnswer[index].value">
+            </label>
+            <label class="form-check-inline">
+              <input class="right-color two" type="radio" :name="index" value="4" v-model="answers.firstAnswer[index].value">
+            </label>
+            <label class="form-check-inline">
+              <input class="right-color three" type="radio" :name="index" value="6" v-model="answers.firstAnswer[index].value">
+            </label>
+          </div>
+        </div>
+        <div class="row">
+          <div class="pl-3 col-6 col-sm-6 col-lg-2 text-center">
+            <label class="form-check-inline">
+              {{ question.questionLeft }}
+            </label>
+          </div>
+          <div class="col-6 col-sm-6 col-lg-2 text-center">
+            <label class="form-check-inline">
+              {{ question.questionRight }}
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div v-for="(question, index) in simpleQuestions" :key="index" class="mb-2">
+      <div class="card-header">{{ index + 2 }}. {{ question.question }}</div>
+<!--      <div class="card-body">-->
+      <div class="card-body">
+        <div class="simple">
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="A" v-model="answers.simpleAnswer[index].checked">
+            {{question.options[0]}}
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="B" v-model="answers.simpleAnswer[index].checked">
+            {{question.options[1]}}
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="C" v-model="answers.simpleAnswer[index].checked">
+            {{question.options[2]}}
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="D" v-model="answers.simpleAnswer[index].checked">
+            {{question.options[3]}}
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <div class="card-header">5.{{ five.question }}</div>
+      <!--      <div class="card-body">-->
+      <div class="card-body">
+        <div class="simple">
+          <div class="form-check" v-for="(option, index) in five.options" :key="index" >
+            <input class="form-check-input" type="checkbox" v-model="answers.fiveList" :value="index" >{{option}}
+            <label class="form-check-label" >
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-2">
+      <div class="card-header">6.{{ six.question }}</div>
+      <!--      <div class="card-body">-->
+      <div class="card-body">
+        <div class="simple">
+          <div class="form-check" v-for="(option, index) in five.options" :key="index" >
+            <input class="form-check-input" type="checkbox" v-model="answers.sixList" :value="index" >{{option}}
+            <label class="form-check-label" >
+            </label>
+          </div>
+          <div class="">
+            <label >Other (please specify)</label>
+            <input type="text"  style="width: 55vw !important;" class="form-control" placeholder="write something...">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-for="(question, index) in lastQuestions" :key="index" class="mb-2">
+      <div class="card-header">{{ index + 7 }}. {{ question.question }}</div>
+      <!--      <div class="card-body">-->
+      <div class="card-body">
+        <div class="simple">
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="A" v-model="answers.lastAnswer[index].checked">
+            {{question.options[0]}}
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="B" v-model="answers.lastAnswer[index].checked">
+            {{question.options[1]}}
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="C" v-model="answers.lastAnswer[index].checked">
+            {{question.options[2]}}
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="D" v-model="answers.lastAnswer[index].checked">
+            {{question.options[3]}}
+          </label>
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- 提交按钮 -->
+  <div class="d-flex justify-content-center">
+    <button @click="clickSubmit" class="btn btn-primary">Submit answers</button>
+  </div>
+
+  <!-- 结果 -->
+  <div class="card mt-5 mb-5">
+    <div class="card-body">
+      <div >
+        <h5>What is your personality type: {{nature}}</h5>
+      </div>
+      <div v-if="submitted">
+        <h5> {{ result }}</h5>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+<script src="https://cdn.bootcss.com/vue/2.6.10/vue.min.js"></script>
+<script>
+  var app = new Vue({
+    el: '#app',
+    data: {
+      screenWidth: window.innerWidth,
+      screenHeight: window.innerHeight,
+      max : false,
+      title:"Group selection tests in the context of Surveillance Capitalism in 2050",
+      firstQuestion : "1.How would you describe yourself?",
+      // 喜欢独处-喜欢社交  独处观察者和跟随者加分，社交影响者和改革者加分
+      // 利己主义-利他主义  利己影响者和观察者加分，利他跟随者和改革者加分
+      // 理性思考-感性分析  理性观察者，影响者，改革者加分，感性跟随者加分
+      // 做事保守-行为创新  保守跟随者和影响者加分，创新改革者和观察者加分
+      firstQuestions: [
+        { questionLeft: 'Introverted' ,questionRight: 'Extroverted'},
+        { questionLeft: 'Egoism' ,questionRight: 'Altruism'},
+        { questionLeft: 'Rational(Thinking)' ,questionRight: 'Emotional(Feeling)'},
+        { questionLeft: 'Conservative' ,questionRight: 'Innovative'},
+      ],
+      simpleQuestions: [
+        { question: 'What is your attitude towards the convenience brought by future technological development and the protection of personal privacy?',
+          options: [
+            'I am willing to sacrifice personal privacy to gain attention and wealth.',
+            'I believe that some privacy can be sacrificed to improve the convenience of life, but I am not willing to be excessively monitored.',
+            'I believe that personal privacy protection should be prioritized in technological development and should not be sacrificed without informed consent.',
+            "I believe that my individual power is insufficient to challenge the enormous wave of technological development, so I can only try to protect my privacy as much as possible."]
+        },
+        { question: 'How would you react when you find out that your behavioral habits, daily routines, and online browsing data are deliberately monitored and used for commercial gains?',
+          options: [
+            'Indifferent - I believe that current devices already monitor real-life comprehensively, as long as it does not affect my daily life.',
+            'Angry and seek legal action - I have a strong reaction and want to protect my information security through legal means.',
+            'Dissatisfied but accepting - Although I am unhappy about the leakage of personal information, if it does not pose a direct threat to my normal life, I will accept it as I believe I cannot change this phenomenon through my own efforts.',
+            "Constantly monitor and attempt to escape the surveillance system - Continuously look for system vulnerabilities and even hope to escape surveillance by learning relevant computer technology."]
+        },
+        { question: 'How do you feel and think about the potential future increase in personal surveillance and control in the physical world?',
+          options: [
+            'I believe that surveillance technology and predictive algorithms can provide me with more opportunities to showcase myself conveniently.',
+            'I believe that personal surveillance technology and predictive algorithms can help me better understand myself and enjoy the convenience they bring to my life, but I do not want my life to be excessively exposed.',
+            'I cannot accept it and want to protect my privacy.',
+            "I do not actively use such technology and keep away from places that may be monitored. I observe the trends in technology development and constantly seek my own safe haven."]
+        },
+
+      ],
+      five:{
+        question: 'Which of the following best represents your consumption beliefs, scenarios, and behaviors? (Multiple choices)',
+        options: [
+          "Stockpiling daily necessities during promotions or discounts.",
+          "Frequently watching live-streaming shopping and enjoying making purchases in live chat rooms.",
+          "Making purchases when seeing favorite items on sale.",
+          "Comparing prices, blogger recommendations, and others' evaluations across multiple channels when purchasing a certain product.",
+          "Often leaving feedback on purchased items and sharing it on relevant platforms.",
+          "Enjoying purchasing niche products and having unique taste preferences."
+        ]
+      },
+      six:{
+        question: 'What factors influence your consumption beliefs, scenarios, and behaviors? (Multiple choices)?',
+        options: [
+          "Willingness to communicate with salespersons.",
+          "Difficulty making choices when purchasing items.",
+          "Struggle between practicality and desire for consumption.",
+          "Balancing conformity to mass standards and showcasing personal taste.",
+        ]
+      },
+      lastQuestions:[
+        { question: 'If algorithmic robots were available in the future to assist you in making shopping decisions, would you be willing to try it?',
+          options: [
+            'I want to train my robot continuously to eventually make it replace me in making most of the consumption decisions.',
+            'I can accept the robot\'s initial screening, but the final decision-making power should still be mine.',
+            'I prefer to make consumption decisions myself and do not want the robot to learn my behavioral patterns and habits.',
+            "I am skeptical about this and would like to give it a try first, but if it is not suitable, I would stop using it promptly."]
+        },
+        // { question: '综合分析以上题目以及对自己性格的判断，你认为在未来你会偏向加入哪类人的群体？并给出自己偏向的人群可能性占比：',
+        //   options: [
+        //     '跟随者。',
+        //     '改革者。',
+        //     '观察者。',
+        //     "影响者"]
+        // },
+      ],
+      answers: {
+        firstAnswer:[
+          {
+            value: 0,
+            left: ["F","O"],
+            right:["I","R"]
+          },
+          {
+            value: 0,
+            left: ["I","O"],
+            right:["F","R"]
+          },
+          {
+            value: 0,
+            left: ["I","R","O"],
+            right:["F"]
+          },
+          {
+            value: 0,
+            left: ["F","I"],
+            right:["R","O"]
+          }
+        ],
+        simpleAnswer : [
+          {
+            index : 2,
+            checked:"",
+            A:["I"],
+            B:["F"],
+            C:["R"],
+            D:["O"],
+          },
+          {
+            index : 3,
+            checked:"",
+            A:["F"],
+            B:["R","O"],
+            C:["O"],
+            D:["R"],
+          },
+          {
+            index : 4,
+            checked:"",
+            A:["I"],
+            B:["F"],
+            C:["R"],
+            D:["O"],
+          }
+        ],
+        fiveList: [],
+        fiveMark:{
+          0: {"F":2, "O":2},
+          1: {"F":2},
+          2: {"F":2},
+          3: {"I":2, "F":2},
+          4: {"I":2},
+          5: {"R":2, "O":2},
+        },
+        sixList:[],
+        sixMark:{
+          0:{"I":1,"O":1,"R":2},
+          1:{"F":3,"O":1},
+          2:{"O":1,"R":3},
+          3:{"I":1,"O":1,"R":2},
+        },
+        lastAnswer: [
+          {
+            index : 7,
+            checked:"",
+            A:{"I":1,"O":1,"R":2},
+            B:{"F":3,"O":1},
+            C:{"O":1,"R":3},
+            D:{"I":1,"O":1,"R":2},
+          },
+          // {
+          //   index : 8,
+          //   checked:"",
+          //   A: {"F":4},
+          //   B: {"R":4},
+          //   C: {"O":4},
+          //   D: {"I":4},
+          // }
+        ],
+      },
+      mark:{
+        INFLUENCER: 0, //影响者，
+        FOLLOWER: 0, //跟随者,
+        REFORMER: 0, //改革者,
+        OBSERVER: 0,//观察者
+      },
+      allNature:{
+        INFLUENCER: "INFLUENCER",
+        FOLLOWER: "FOLLOWER",
+        REFORMER: "REFORMER",
+        OBSERVER: "OBSERVER"
+      },
+      allResults:{
+        INFLUENCER: "You hope to use algorithms and machine learning to better and more accurately analyze and optimize personal data. And use collected and analyzed personal data to establish and invest in self-image. Use social media platforms to showcase oneself or use online markets to showcase one's products and services. Through these methods, influencers can gain more attention and benefits, thereby improving their social status and economic interests.", //影响者，
+        FOLLOWER: "In the context of monitoring capitalism, you may believe that the development of technology will inevitably bring sacrifices to personal interests, and policy followers will prioritize personal privacy and rights, paying more attention to the overall interests of society. This attitude may make it easier for you to accept the collection and monitoring of personal information by the government or enterprises. At the same time, you believe that internet algorithms can bring many conveniences to your life and better manage personal data information.", //跟随者,
+        REFORMER: "You are a policy opponent who considers from the perspective of the group. Although you have seen the timely convenience brought by precise algorithms to humanity, you will delve deeper into the terrifying ethical crisis behind them. You firmly believe that personal freedom and privacy are very important, and you will pay more attention to the future development direction of all humanity, safeguarding group interests and rights. Reformers actively explore all ways to protect the privacy of personal information data, use encryption technology, avoid using monitored applications or devices, interfere with and disrupt the existing Analysis of algorithms system, and spontaneously organize various anti algorithm manipulation campaigns to appeal to people to pay attention to this social problem.", //改革者,
+        OBSERVER: "Observers hold a wait-and-see attitude towards this system, and you do not want to be monitored and analyzed, nor do you intentionally oppose or undermine the system. You do not pursue thorough institutional change or revolution, but rather tend to focus on and uphold individual rights, hoping to observe social changes in a hidden way.",//观察者
+      },
+      nature:"?",
+      result: '',
+      score: 0,
+      submitted: false
+    },
+    created() {
+      window.addEventListener('resize', this.handleResize);
+    },
+    destroyed() {
+      window.removeEventListener('resize', this.handleResize);
+    },
+    mounted(){
+      this.handleResize
+    },
+    methods: {
+      handleResize() {
+        this.screenWidth = window.innerWidth;
+        this.screenHeight = window.innerHeight;
+        this.max = this.screenWidth >= 900
+        console.log("宽:",this.screenWidth)
+        console.log("高:",this.screenHeight)
+        console.log("变换:",this.max)
+      },
+      addMark(word,mark){
+        console.log("要加的词:",word)
+        console.log("要加的分:",mark)
+        switch (word) {
+          case "I":
+            this.mark.INFLUENCER+=mark
+            break
+          case "F":
+            this.mark.FOLLOWER+=mark
+            break
+          case "R":
+            this.mark.REFORMER+=mark
+            break
+          case "O":
+            this.mark.OBSERVER+=mark
+            break
+        }
+      },
+      getResult(){
+        var result = ''
+        this.score = 0
+        var mark = this.mark
+        for (let key in mark) {
+          // console.log(key); // name age
+          // console.log(mark[key]);
+          if(mark[key]>this.score){
+            this.score = mark[key]
+          }
+        }
+        this.showResult()
+      },
+      showResult(){
+        // INFLUENCER: 0, //影响者，
+        // FOLLOWER: 0, //跟随者,
+        // REFORMER: 0, //改革者,
+        // OBSERVER: 0,//观察者
+        //跟随者：在监视资本主义背景下，你会认为科技的发展必然会带来个人利益的牺牲，政策跟随者会将个人隐私和个人权利放在次要的位置，更加关注社会的整体利益。这样的态度可能会使你更容易接受政府或企业对个人信息的收集和监控。同时，你认为互联网算法可以给自己的生活带来许多便利，更好的管理个人数据信息。
+        //改革者：你是站在群体角度思考的政策反对者，虽然看到了精准算法给人类带来的及时便利，但会更加深入挖掘其背后可怕的伦理危机，你坚信个人的自由和隐私是非常重要的，会更加注重全人类的未来发展方向，维护群体利益和权利。改革者们积极探索着一切可以保护个人信息数据隐私的方式，使用加密技术、避免使用被监控的应用程序或设备、干扰和扰乱现有的算法分析体系，自发组织各类反算法操控运动来呼吁人们关注这一社会问题。
+        //观察者：观察者对这项制度持观望态度，你不希望自己被监视和分析，也不会去故意去反对或者破坏制度。你并不追求彻底的体制改变或革命，而是倾向于关注和维护个人权利，希望隐蔽自己观察社会变化。
+        //影响者：你希望利用算法和机器学习更好更精确地分析和优化个人数据。并利用收集和分析的个人数据来实现自我形象建立与投资。使用社交媒体平台来展示自己或者使用在线市场来展示自己的商品和服务。通过这些方式，影响者可以获得更多的关注和好处，从而提高自己的社会地位和经济利益。
+        var mark = this.mark
+        var word = ''
+        for (let key1 in mark) {
+          // console.log(key1); // name age
+          // console.log(mark[key1]);
+          // console.log(this.score)
+          // console.log(this.mark)
+          if(mark[key1]==this.score){
+              word = key1
+              console.log(word)
+          }
+        }
+        allResult = this.allResults
+        allNature = this.allNature
+        // console.log(allResult)
+        this.result = allResult[word]
+        this.nature = allNature[word]
+      },
+      clickSubmit() {
+        // 计算 MBTI 性格类型
+        var type = '';
+        this.mark = {
+          INFLUENCER: 0, //影响者，
+          FOLLOWER: 0, //跟随者,
+          REFORMER: 0, //改革者,
+          OBSERVER: 0,//观察者
+        },
+        console.log(JSON.stringify(this.answers))
+        // 第一题
+        var firstAnswer = this.answers.firstAnswer
+        console.log(firstAnswer)
+        for (let i = 0; i < firstAnswer.length; i++) {
+          if(firstAnswer[i].value >0){
+            for (let j = 0; j < firstAnswer[i].right.length; j++) {
+              this.addMark(firstAnswer[i].right[j],firstAnswer[i].value)
+            }
+          }else  if(firstAnswer[i].value <0){
+            for (let j = 0; j < firstAnswer[i].left.length; j++) {
+              this.addMark(firstAnswer[i].left[j],Math.abs(firstAnswer[i].value))
+            }
+          }
+        }
+        // 第二题到第四题
+        var simpleAnswer = this.answers.simpleAnswer
+        console.log(simpleAnswer)
+        for (let i = 0; i < simpleAnswer.length; i++) {
+          if(simpleAnswer[i].checked !=null && simpleAnswer[i].checked !==""){
+            for (let key in simpleAnswer[i]) {
+              // console.log(key); // name age
+              // console.log(simpleAnswer[i][key]);
+              // console.log(key == simpleAnswer[i].checked);
+              if(key == simpleAnswer[i].checked){
+                for (let j = 0; j < simpleAnswer[i][key].length; j++) {
+                  this.addMark(simpleAnswer[i][key][j],4)
+                }
+              }
+            }
+          }
+        }
+
+        // 第五题
+        var fiveList = this.answers.fiveList
+        var fiveMark = this.answers.fiveMark
+        for (let i = 0; i < fiveList.length; i++) {
+          for (let key in fiveMark) {
+            // console.log(key); // name age
+            // console.log(fiveMark[key]);
+            if(key == fiveList[i]){
+              for (let key1 in fiveMark[key]) {
+                // console.log(key1); // name age
+                // console.log(fiveMark[key][key1]);
+                this.addMark(key1,fiveMark[key][key1])
+              }
+            }
+          }
+        }
+
+        // 第六题
+        var sixList = this.answers.sixList
+        var sixMark = this.answers.sixMark
+        for (let i = 0; i < sixList.length; i++) {
+          for (let key in sixMark) {
+            // console.log(key); // name age
+            // console.log(sixMark[key]);
+            // console.log(key == sixList[i])
+            if(key == sixList[i]){
+              for (let key1 in sixMark[key]) {
+                // console.log(key1); // name age
+                // console.log(sixMark[key][key1]);
+                this.addMark(key1,sixMark[key][key1])
+              }
+            }
+          }
+        }
+
+        // 第七第八题
+        var lastAnswer = this.answers.lastAnswer
+        console.log(lastAnswer)
+        for (let i = 0; i < lastAnswer.length; i++) {
+          if(lastAnswer[i].checked !=null || lastAnswer[i].checked !==""){
+            for (let key in lastAnswer[i]) {
+              // console.log(key); // name age
+              // console.log(lastAnswer[i][key]);
+              // console.log(key == lastAnswer[i].checked);
+              if(key == lastAnswer[i].checked){
+                for (let key1 in lastAnswer[i][key]) {
+                  // console.log(key1); // name age
+                  // console.log(lastAnswer[i][key][key1]);
+                  this.addMark(key1,lastAnswer[i][key][key1])
+                }
+              }
+            }
+          }
+        }
+        // 显示结果
+        this.getResult()
+        this.submitted = true;
+      }
+    }
+  });
+</script>
+</body>
+</html>
