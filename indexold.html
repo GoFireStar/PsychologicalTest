@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MBTI 性格测试问卷</title>
+    <!-- 导入 Bootstrap 样式文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container">
+    <h1>MBTI 性格测试问卷</h1>
+    <form id="mbti-form">
+        <div class="form-group">
+            <label for="question1">问题 1：你更喜欢哪种活动？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q1a" name="question1" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q1a">A、独处、读书、看电影</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q1b" name="question1" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q1b">B、和朋友聚会、参加派对、运动</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question2">问题 2：在处理问题时，你更注重哪种方式？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q2a" name="question2" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q2a">A、理性、逻辑、分析</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q2b" name="question2" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q2b">B、情感、直觉、体验</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question3">问题 3：你会如何描述自己？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q3a" name="question3" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q3a">A、宁静、内向、低调</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q3b" name="question3" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q3b">B、外向、充满活力、有冲劲</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question4">问题 4：当你面对的是一个大型项目时，你通常会？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q4a" name="question4" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q4a">A、一步一步认真执行计划</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q4b" name="question4" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q4b">B、尽快开始行动，然后再根据需要调整计划</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question5">问题 5：你更偏爱哪种思维方式？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q5a" name="question5" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q5a">A、符号、图表、数字</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q5b" name="question5" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q5b">B、想象、比喻、隐喻</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question6">问题 6：在社交场合中，你更倾向于？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q6a" name="question6" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q6a">A、和熟悉的人聊天，避免跟陌生人说话</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q6b" name="question6" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q6b">B、尝试认识新朋友，扩大自己的社交圈子</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question7">问题 7：当你面对一个问题时，你会更关注哪个方面？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q7a" name="question7" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q7a">A、问题本身及其细节</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q7b" name="question7" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q7b">B、问题背后的原因以及潜在影响</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question8">问题 8：你认为自己更注重哪种能力？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q8a" name="question8" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q8a">A、逻辑思维和分析能力</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q8b" name="question8" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q8b">B、想象力和创造力</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question9">问题 9：你倾向于以什么样的方式表达自己？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q9a" name="question9" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q9a">A、通过文字、图形等书面表达方式</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q9b" name="question9" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q9b">B、通过口头言语、声音、身体语言等直接表达方式</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="question10">问题 10：当你面临竞争时，你会如何应对？</label>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q10a" name="question10" value="A" class="custom-control-input">
+                <label class="custom-control-label" for="q10a">A、竭尽全力争取胜利，但也能承认失败并学习经验</label>
+            </div>
+            <div class="custom-control custom-radio">
+                <input type="radio" id="q10b" name="question10" value="B" class="custom-control-input">
+                <label class="custom-control-label" for="q10b">B、主张团队合作，不追求个人成就，愿意为全局考虑</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">提交</button>
+    </form>
+    <div id="result" style="display:none;">
+        <h2>测评结果</h2>
+        <p>您的 MBTI 性格类型为：<span id="type"></span></p>
+    </div>
+</div>
+<!-- 导入 Bootstrap JS 文件 -->
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#mbti-form').submit(function(e) {
+            e.preventDefault();
+// 计算 MBTI 性格类型
+            var answers = $(this).serializeArray();
+            var type = '';
+            if (answers[0].value === 'A') {
+                if (answers[1].value === 'A') {
+                    if (answers[2].value === 'A') {
+                        if (answers[3].value === 'A') {
+                            if (answers[4].value === 'A') {
+                                type = 'ISTJ';
+                            } else {
+                                type = 'ISFJ';
+                            }
+                        } else {
+                            if (answers[5].value === 'A') {
+                                type = 'INFJ';
+                            } else {
+                                type = 'INTJ';
+                            }
+                        }
+                    } else {
+                        if (answers[6].value === 'A') {
+                            if (answers[7].value === 'A') {
+                                type = 'ISTP';
+                            } else {
+                                type = 'ISFP';
+                            }
+                        } else {
+                            if (answers[8].value === 'A') {
+                                type = 'INFP';
+                            } else {
+                                type = 'INTP';
+                            }
+                        }
+                    }
+                } else {
+                    if (answers[2].value === 'A') {
+                        if (answers[3].value === 'A') {
+                            if (answers[6].value === 'A') {
+                                type = 'ESTJ';
+                            } else {
+                                type = 'ESFJ';
+                            }
+                        } else {
+                            if (answers[5].value === 'A') {
+                                type = 'ENFJ';
+                            } else {
+                                type = 'ENTJ';
+                            }
+                        }
+                    } else {
+                        if (answers[6].value === 'A') {
+                            if (answers[7].value === 'A') {
+                                type = 'ESTP';
+                            } else {
+                                type = 'ESFP';
+                            }
+                        } else {
+                            if (answers[8].value === 'A') {
+                                type = 'ENFP';
+                            } else {
+                                type = 'ENTP';
+                            }
+                        }
+                    }
+                }
+            } else {
+                if (answers[1].value === 'A') {
+                    if (answers[2].value === 'A') {
+                        if (answers[3].value === 'A') {
+                            if (answers[4].value === 'A') {
+                                type = 'ISTJ';
+                            } else {
+                                type = 'ISFJ';
+                            }
+                        } else {
+                            if (answers[5].value === 'A') {
+                                type = 'INFJ';
+                            } else {
+                                type = 'INTJ';
+                            }
+                        }
+                    } else {
+                        if (answers[6].value === 'A') {
+                            if (answers[7].value === 'A') {
+                                type = 'ISTP';
+                            } else {
+                                type = 'ISFP';
+                            }
+                        } else {
+                            if (answers[8].value === 'A') {
+                                type = 'INFP';
+                            } else {
+                                type = 'INTP';
+                            }
+                        }
+                    }
+                } else {
+                    if (answers[2].value === 'A') {
+                        if (answers[3].value === 'A') {
+                            if (answers[6].value === 'A') {
+                                type = 'ESTJ';
+                            } else {
+                                type = 'ESFJ';
+                            }
+                        } else {
+                            if (answers[5].value === 'A') {
+                                type = 'ENFJ';
+                            } else {
+                                type = 'ENTJ';
+                            }
+                        }
+                    } else {
+                        if (answers[6].value === 'A') {
+                            if (answers[7].value === 'A') {
+                                type = 'ESTP';
+                            } else {
+                                type = 'ESFP';
+                            }
+                        } else {
+                            if (answers[8].value === 'A') {
+                                type = 'ENFP';
+                            } else {
+                                type = 'ENTP';
+                            }
+                        }
+                    }
+                }
+            }
+// 显示结果
+            $('#type').text(type);
+            $('#result').show();
+        });
+    });
+</script>
+</body>
+</html>
