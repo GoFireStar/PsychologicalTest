@@ -203,7 +203,7 @@
       <!--      <div class="card-body">-->
       <div class="card-body">
         <div class="simple">
-          <div class="form-check" v-for="(option, index) in five.options" :key="index" >
+          <div class="form-check" v-for="(option, index) in six.options" :key="index" >
             <input class="form-check-input" type="checkbox" v-model="answers.sixList" :value="index" >{{option}}
             <label class="form-check-label" >
             </label>
@@ -320,7 +320,7 @@
         ]
       },
       six:{
-        question: 'What factors influence your consumption beliefs, scenarios, and behaviors? (Multiple choices)?',
+        question: 'What factors influence your consumption beliefs, scenarios, and behaviors(Multiple choices)?',
         options: [
           "Willingness to communicate with salespersons.",
           "Difficulty making choices when purchasing items.",
@@ -525,7 +525,7 @@
         allNature = this.allNature
         // console.log(allResult)
         this.result = allResult[word]
-        this.nature = allNature[word]
+        this.nature = word
       },
       clickSubmit() {
         // 计算 MBTI 性格类型
