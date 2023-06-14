@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>MBTI 测试问卷</title>
+  <title>psychological test</title>
   <!-- CSS 样式表 -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
@@ -218,26 +218,26 @@
       </div>
     </div>
 
-    <div v-for="(question, index) in lastQuestions" :key="index" class="mb-2">
-      <div class="card-header">{{ index + 7 }}. {{ question.question }}</div>
+    <div v-for="(quest, index) in lastQuestions" :key="index" class="mb-2">
+      <div class="card-header">{{ index + 7 }}. {{ quest.question }}</div>
       <!--      <div class="card-body">-->
       <div class="card-body">
         <div class="simple">
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="A" v-model="answers.lastAnswer[index].checked">
-            {{question.options[0]}}
+            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="A" v-model="answers.lastAnswer[index].checked">
+            {{quest.options[0]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="B" v-model="answers.lastAnswer[index].checked">
-            {{question.options[1]}}
+            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="B" v-model="answers.lastAnswer[index].checked">
+            {{quest.options[1]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="C" v-model="answers.lastAnswer[index].checked">
-            {{question.options[2]}}
+            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="C" v-model="answers.lastAnswer[index].checked">
+            {{quest.options[2]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="D" v-model="answers.lastAnswer[index].checked">
-            {{question.options[3]}}
+            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="D" v-model="answers.lastAnswer[index].checked">
+            {{quest.options[3]}}
           </label>
         </div>
       </div>
