@@ -41,6 +41,13 @@
       vertical-align: center;
       line-height: inherit;
     }
+    .sim{
+      width: 0.8em !important;
+      height: 0.8em !important;
+      text-align: center;
+      vertical-align: center;
+      line-height: inherit;
+    }
     .simple{
       display: flex;
       flex-direction: column;
@@ -167,19 +174,19 @@
       <div class="card-body">
         <div class="simple">
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="A" v-model="answers.simpleAnswer[index].checked">
+            <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="A" v-model="answers.simpleAnswer[index].checked">
             {{question.options[0]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="B" v-model="answers.simpleAnswer[index].checked">
+            <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="B" v-model="answers.simpleAnswer[index].checked">
             {{question.options[1]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="C" v-model="answers.simpleAnswer[index].checked">
+            <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="C" v-model="answers.simpleAnswer[index].checked">
             {{question.options[2]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'question-'+(index+2)" value="D" v-model="answers.simpleAnswer[index].checked">
+            <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="D" v-model="answers.simpleAnswer[index].checked">
             {{question.options[3]}}
           </label>
         </div>
@@ -224,19 +231,19 @@
       <div class="card-body">
         <div class="simple">
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="A" v-model="answers.lastAnswer[index].checked">
+            <input class="form-check-input sim" type="radio" :name="'quest-'+(index+7)" value="A" v-model="answers.lastAnswer[index].checked">
             {{quest.options[0]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="B" v-model="answers.lastAnswer[index].checked">
+            <input class="form-check-input sim" type="radio" :name="'quest-'+(index+7)" value="B" v-model="answers.lastAnswer[index].checked">
             {{quest.options[1]}}
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="C" v-model="answers.lastAnswer[index].checked">
+            <input class="form-check-input sim" type="radio" :name="'quest-'+(index+7)" value="C" v-model="answers.lastAnswer[index].checked">
             {{quest.options[2]}}
           </label>
-          <label class="form-check-inline">
-            <input class="form-check-input" type="radio" :name="'quest-'+(index+2)" value="D" v-model="answers.lastAnswer[index].checked">
+          <label class="form-check-inline ">
+            <input class="form-check-input sim" type="radio" :name="'quest-'+(index+7)" value="D" v-model="answers.lastAnswer[index].checked">
             {{quest.options[3]}}
           </label>
         </div>
