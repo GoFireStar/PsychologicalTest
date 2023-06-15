@@ -482,16 +482,16 @@
         console.log("要加的分:",mark)
         switch (word) {
           case "I":
-            this.mark.INFLUENCER+=mark
+            this.mark.INFLUENCER+= parseInt(mark)
             break
           case "F":
-            this.mark.FOLLOWER+=mark
+            this.mark.FOLLOWER+= parseInt(mark)
             break
           case "R":
-            this.mark.REFORMER+=mark
+            this.mark.REFORMER+= parseInt(mark)
             break
           case "O":
-            this.mark.OBSERVER+=mark
+            this.mark.OBSERVER+= parseInt(mark)
             break
         }
       },
@@ -518,6 +518,7 @@
         //观察者：观察者对这项制度持观望态度，你不希望自己被监视和分析，也不会去故意去反对或者破坏制度。你并不追求彻底的体制改变或革命，而是倾向于关注和维护个人权利，希望隐蔽自己观察社会变化。
         //影响者：你希望利用算法和机器学习更好更精确地分析和优化个人数据。并利用收集和分析的个人数据来实现自我形象建立与投资。使用社交媒体平台来展示自己或者使用在线市场来展示自己的商品和服务。通过这些方式，影响者可以获得更多的关注和好处，从而提高自己的社会地位和经济利益。
         var mark = this.mark
+        console.log(this.mark)
         var word = ''
         for (let key1 in mark) {
           // console.log(key1); // name age
