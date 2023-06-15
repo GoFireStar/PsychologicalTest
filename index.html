@@ -41,11 +41,25 @@
       vertical-align: center;
       line-height: inherit;
     }
-    .sim{
-      width: 16px !important;
-      height: 16px !important;
-      text-align: center;
-      vertical-align: center;
+
+    @media (min-width: 1200px) {
+      .box {
+        width: 200px;
+      }
+    }
+    @media (min-width: 900px) and (max-width: 1199px) {
+      .box {
+        width: 150px;
+      }
+    }
+    @media (max-width: 900px) {
+      .sim{
+        width: 16px !important;
+        height: 16px !important;
+        text-align: center;
+        vertical-align: center;
+        margin-right: 5px !important;
+      }
     }
     .simple{
       display: flex;
@@ -67,7 +81,7 @@
 
   <!-- 头部导航栏 -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
-    <div class="row row-cols-1 h5 text-light">{{title}}</div>
+    <div class="pl-2 row row-cols-1 h5 text-light">{{title}}</div>
 <!--    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
 <!--      <span class="navbar-toggler-icon"></span>-->
 <!--    </button>-->
