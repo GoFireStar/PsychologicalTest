@@ -443,16 +443,16 @@
         OBSERVER: 0,//观察者
       },
       allNature:{
-        INFLUENCER: "INFLUENCER",
-        FOLLOWER: "FOLLOWER",
-        REFORMER: "REFORMER",
-        OBSERVER: "OBSERVER"
+        INFLUENCER: "Influencer",
+        FOLLOWER: "Follower",
+        REFORMER: "Reformer",
+        OBSERVER: "Observer"
       },
       allResults:{
-        INFLUENCER: "You hope to use algorithms and machine learning to better and more accurately analyze and optimize personal data. And use collected and analyzed personal data to establish and invest in self-image. Use social media platforms to showcase oneself or use online markets to showcase one's products and services. Through these methods, influencers can gain more attention and benefits, thereby improving their social status and economic interests.", //影响者，
-        FOLLOWER: "In the context of monitoring capitalism, you may believe that the development of technology will inevitably bring sacrifices to personal interests, and policy followers will prioritize personal privacy and rights, paying more attention to the overall interests of society. This attitude may make it easier for you to accept the collection and monitoring of personal information by the government or enterprises. At the same time, you believe that internet algorithms can bring many conveniences to your life and better manage personal data information.", //跟随者,
-        REFORMER: "You are a policy opponent who considers from the perspective of the group. Although you have seen the timely convenience brought by precise algorithms to humanity, you will delve deeper into the terrifying ethical crisis behind them. You firmly believe that personal freedom and privacy are very important, and you will pay more attention to the future development direction of all humanity, safeguarding group interests and rights. Reformers actively explore all ways to protect the privacy of personal information data, use encryption technology, avoid using monitored applications or devices, interfere with and disrupt the existing Analysis of algorithms system, and spontaneously organize various anti algorithm manipulation campaigns to appeal to people to pay attention to this social problem.", //改革者,
-        OBSERVER: "Observers hold a wait-and-see attitude towards this system, and you do not want to be monitored and analyzed, nor do you intentionally oppose or undermine the system. You do not pursue thorough institutional change or revolution, but rather tend to focus on and uphold individual rights, hoping to observe social changes in a hidden way.",//观察者
+        INFLUENCER: "You aspire to utilize algorithms and machine learning to analyze and optimize personal data more effectively and accurately. You leverage the collection and analysis of personal data to establish your self-image and investments. Whether by showcasing yourself on social media platforms or exhibiting your products and services on online marketplaces, influencers seek to gain more attention and benefits, ultimately enhancing their social status and economic interests.", //影响者，
+        FOLLOWER: "In the context of surveillance capitalism, you believe that the development of technology inevitably leads to personal sacrifices in favor of societal interests. Policy followers prioritize social benefits over individual privacy and rights, making it easier for you to accept government or corporate collection and monitoring of personal information. Additionally, you believe that internet algorithms can bring convenience to your life and better manage personal data information.", //跟随者,
+        REFORMER: "You are a policy opponent who thinks from a collective perspective. While you acknowledge the timely convenience brought by precise algorithms, you delve deeper into the underlying ethical crises. You firmly believe in the importance of personal freedom and privacy and focus on the future development direction of humanity as a whole, advocating for the protection of group interests and rights. Reformers actively explore ways to safeguard personal information data privacy, such as using encryption technologies, avoiding monitored applications or devices, interfering with and disrupting existing algorithmic analysis systems. They spontaneously organize various movements against algorithmic manipulation to raise awareness of this social issue.", //改革者,
+        OBSERVER: "As an observer, you maintain a wait-and-see attitude towards this system. You do not wish to be monitored and analyzed, nor do you deliberately oppose or undermine the system. Instead of pursuing radical systemic change or revolution, you tend to focus on preserving and safeguarding individual rights. You prefer to discreetly observe societal changes.",//观察者
       },
       nature:"?",
       result: '',
@@ -534,7 +534,7 @@
         allNature = this.allNature
         // console.log(allResult)
         this.result = allResult[word]
-        this.nature = word
+        this.nature = allNature[word]
       },
       clickSubmit() {
         // 计算 MBTI 性格类型
