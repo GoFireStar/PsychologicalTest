@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>psychological test</title>
   <!-- CSS 样式表 -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css">
 
   <style>
     .first{
@@ -46,7 +46,6 @@
       height: 16px !important;
       text-align: center;
       vertical-align: center;
-      line-height: inherit;
     }
     .simple{
       display: flex;
@@ -175,19 +174,19 @@
         <div class="simple">
           <label class="form-check-inline">
             <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="A" v-model="answers.simpleAnswer[index].checked">
-            {{question.options[0]}}
+            <span>{{question.options[0]}}</span>
           </label>
           <label class="form-check-inline">
             <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="B" v-model="answers.simpleAnswer[index].checked">
-            {{question.options[1]}}
+            <span>{{question.options[1]}}</span>
           </label>
           <label class="form-check-inline">
             <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="C" v-model="answers.simpleAnswer[index].checked">
-            {{question.options[2]}}
+            <span>{{question.options[2]}}</span>
           </label>
           <label class="form-check-inline">
             <input class="form-check-input sim" type="radio" :name="'question-'+(index+2)" value="D" v-model="answers.simpleAnswer[index].checked">
-            {{question.options[3]}}
+            <span>{{question.options[3]}}</span>
           </label>
         </div>
       </div>
